@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('student_id');
             $table->foreign('student_id')
                 ->references('id')
                 ->on('students')
