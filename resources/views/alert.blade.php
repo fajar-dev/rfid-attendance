@@ -69,3 +69,17 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Loading -->
+<div class="modal border-0" id="loadingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true" style="z-index: 9999">
+  <div class="modal-dialog modal-dialog-centered bg-transparent border-0 shadow-none">
+    <div class="modal-content bg-transparent shadow-none border-0">
+      <div class="modal-body text-center border-0">
+        <div class="spinner-border text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3">Please wait...</p>
+      </div>
+    </div>
+  </div>
+</div>

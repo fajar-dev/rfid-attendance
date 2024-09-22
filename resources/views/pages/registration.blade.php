@@ -9,7 +9,7 @@
                         <div class="col-lg-8 h-100 col-12 mx-auto">
                             <h1 class="text-white text-center">REGISTRASI</h1>
                             <h6 class="text-center">Registrasi RFID Mahasiswa</h6>
-                            <form action="{{ route('register.store') }}" method="post" class="custom-form contact-form mt-5" id="register" role="form">
+                            <form action="{{ route('register.store') }}" method="post" class="custom-form contact-form mt-5" id="register" role="form" onsubmit="showLoadingModal()">
                                 @csrf
                                 <div class="row justify-content-center">
                                     <div class="col-lg-8 col-12">
@@ -71,14 +71,14 @@
                         <tbody>
                         @foreach ($student as $item)
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->student_identity_number }}</td>
                         </tr>
                         @endforeach
                         </tbody>
-                      </table>
+                    </table>
                 </div>
             </div>
            </div>
@@ -87,11 +87,16 @@
 </main>
 
 <script>
-document.getElementById('rfid').addEventListener('change', function() {
+    document.getElementById('rfid').addEventListener('change', function() {
         if (this.value !== "") {
+            var modalrfid = new bootstrap.Modal(document.getElementById('exampleModal'));
+            modalrfid.hide();
+            var loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
+            loadingModal.show();
             document.getElementById('register').submit(); // Submit the form
         }
     });
+
     document.getElementById('exampleModal').addEventListener('shown.bs.modal', function () {
         document.getElementById('rfid').focus(); // Set focus on the RFID input
     });

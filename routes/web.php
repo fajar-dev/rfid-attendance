@@ -5,7 +5,7 @@ use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('pages.register');
+    return redirect()->route('register');
 });
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('register');
